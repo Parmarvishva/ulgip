@@ -3,7 +3,7 @@ FROM richarvey/nginx-php-fpm:latest
 WORKDIR /var/www/html
 
 COPY . .
-
+COPY nginx/default.conf /etc/nginx/sites-enabled/default
 RUN composer install --no-dev --optimize-autoloader
 
 RUN php artisan config:cache
